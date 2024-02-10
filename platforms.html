@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mechagic's Based & Cool Website</title>
+  <link rel="icon" type="image/x-icon" href="/img gen/favicon.png">
+  <meta content="Mechagic's Based And Cool Website" property="og:title">
+  <meta content="/img gen/favicon.png" property="og:image">
+  <meta property="og:description" content="I swear to you that I am actually a cockroach IRL, trust me bro">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="//pull.cappuccicons.com/cpf.js"></script>
+  <link rel="stylesheet" href="/style.css">
+          <!-- THIS IS THE CSS !-->
+        <style></style>
+        
+</head>
+<body>
+        <div id="container">
+            <div id="headerArea">
+                <div id="header"></div>
+                <nav id="navbar">
+                    <ul>
+                        <li><a href="/home">HOME  <i class="cp cp-home"></i> </a></li>
+                         <li><a href="/creations">CREATIONS <i class="cp cp-palette"></i> </a></li>
+                        <li><a href="/game">GAMES <i class="cp cp-gaming-controller"></i> </a></li>
+                        <li><a href="/identities">IDENTITIES <i class="cp cp-flower"></i> </a></li>
+                        <li><a href="/platforms">PLATFORMS <i class="cp cp-worldwide"></i> </a></li>
+                        <li><a href="/misc">MISC <i class="cp cp-folder"></i> </a></li>
+                    </ul>
+                  </nav>
+            </div>
+                    <div class="box">
+                       <center> <h1>PLATFORMS</h1></CENTER>
+                    </div>
+                    
+            <div id="flex">
+                <aside id="leftSidebar">
+                <div class="tbox">
+                                   <br>
+                   <center><h3>Random Stuff</h3></center>
+                   
+                        <center><p>Creation: 10-13-2023 <br><br>  Last Updated: <span id="lastupdate"></span ><br><br> <span id="hitcount"></span> people have visited</p> </center>
+                        <hr class="rounded">
+                        <center><img src="/img gen/sidebar img.png" width="190" height="auto"> </center>
+                        <hr class="rounded">
+                        <center><p>Have a button that I made:</p> 
+                        <img src="/img gen/button 2.0.png" width="90" height="auto"> <br><br ><textarea class="copyButton"><a href="https://mechagic.neocities.org/" target="_blank"><img src="https://i.ibb.co/pjNYks8/button-2-0.png"></a></textarea></center>
+                </div>
+
+<script>
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var site_data = JSON.parse(this.responseText);
+        var num_arr = site_data.info.views.toString().split("");
+        var num_str = "";
+        for (i = 0; i < num_arr.length; i++) {
+            num_str += num_arr[i];
+            if ( (num_arr.length-1 - i) % 3 == 0 && (num_arr.length-1 - i) != 0 ) {num_str += ",";}
+            var date_str = site_data.info.last_updated;
+            var date_obj = new Date(site_data.info.last_updated);
+            document.getElementById("lastupdate").innerHTML = (date_obj.getMonth()+1) + "-" + date_obj.getDate() + "-" + date_obj.getFullYear();
+        }
+        document.getElementById("hitcount").innerHTML = num_str;
+    }
+};
+xhttp.open("GET", "https://weirdscifi.ratiosemper.com/neocities.php?sitename=mechagic", true);
+xhttp.send();
+</script>
+
+
+                </aside>
+                <main>
+                    <h2>
+                        Main Accounts  <i class="cp cp-briefcase"></i> 
+                    </h2>
+                    <p>Exactly what it says on the tin</p>
+                    <ul>
+                      <li>Tumblr - Mechagic - <b><a href="https://www.reddit.com/user/Geno1setback">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Reddit - Geno1setback - <b><a href="https://mechagic.tumblr.com">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Lemmy.World - Mechagic - <b><a href="https://lemmy.world/u/MECHAGIC">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Spacehey - Mechagic - <b><a href="https://spacehey.com/MECHAGIC">link <i class="cp cp-link"></i> </a></b></li> <br>
+                    </ul>
+                     <br>
+                        <hr class="rounded"> <br>
+                    <h2>
+                        Alt Accounts  <i class="cp cp-deadpool"></i> 
+                    </h2>
+                    <p>Most of these are abandoned, I might revive the askblogs in the future as original content, for now they rot</p>
+                       <ul>
+                      <li>carrd stuff, all carrds are unavailable - janes carrd - <b><a href="https://janes-carrd.tumblr.com/">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Short stories, archived on spacehey - jimvert stories - <b><a href="https://jimvert-stories.tumblr.com"> rotted link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Jsab askblog, might use as OC fuel - our pink king - <b><a href="https://our-pink-king.tumblr.com">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Parody account, won't be revived - just cool proship things - <b><a href="https://just-cool-proship-things.tumblr.com">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Aldernic coining, won't be revived - mechagical aldernic idiot - <b><a href="https://mechagical-aldernic-idiot.tumblr.com">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Mias world askblog, tw for body horror - mias sweet home - <b><a href="https://mias-sweet-home.tumblr.com">link <i class="cp cp-link"></i> </a></b></li> <br>
+                    </ul>                 
+ <br>
+                         <hr class="rounded"> <br>
+                    <h2>
+                        Abandoned  <i class="cp cp-basket"></i> 
+                    </h2>
+                    <p>Archived stuff, might revive</p>
+                       <ul>
+                      <li>Pixilart - Mechagic - <b><a href="https://www.pixilart.com/mechagic">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>FlipAnim - JaneTheMundane - <b><a href="https://flipanim.com/profile?name=JaneTheMundane">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Bearblog.dev - A Mundane Blog - <b><a href="https://a-mundane-blog.bearblog.dev/">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Artfol - Chansword - <b><a href="https://www.artfol.me/chansword">link <i class="cp cp-link"></i> </a></b></li> <br>
+                    </ul>  
+                    
+ <br>
+                         <hr class="rounded"> <br>
+                    <h2>
+                        Other Links  <i class="cp cp-satellite-dish"></i> 
+                    </h2> 
+                    <p>Some new and old stuff</p>
+                    <ul>
+                      <li>Whiteboard - Free to edit - <b><a href="https://browserboard.com/whiteboard/MqaW62HMSPPzYaeGpNSSds?key=4odocRSQasSwcrEQ2YPUxd">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Text World - Write Anything - <b><a href="https://www.yourworldoftext.com/~GenoJIM/">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Neocities  - Recursive - <b><a href="https://mechagic.neocities.org/">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Status Cafe  - Ramblings - <b><a href="https://status.cafe/users/mechagic">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Perchance - Old Centaursona generator - <b><a href="https://perchance.org/centaursona-generator">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Neoring - Insect Gang Webring - <b><a href="https://neorings.org/webring/10">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Aggie - Draw Anything, unmoderated - <b><a href="https://aggie.io/izpsrkyf78">link <i class="cp cp-link"></i> </a></b></li> <br>
+                      <li>Imgbb - Image Host - <b><a href="https://geno-is-the-1.imgbb.com/">link <i class="cp cp-link"></i> </a></b></li> <br>
+
+                    </ul>
+
+                </main>
+                
+            </div>
+                                <footer id="footer"><div class="container">
+                <a href="#credits" class="btn btn-primary btn-sm" data-toggle="collapse"><b>credits</b></a>
+  <div id="credits" class="collapse">
+    <b>original layout</b> and <b>bg image</b> by <a href="https://sadgrl.online/">sadgrl</a>, <b>general code learning</b> from <a href="https://www.w3schools.com/">w3schools</a>, <b>icons</b> from <a href="https://cappuccicons.com/">cappuccicons</a> <br> <b>help regarding errors</b> from <a href="https://discord.gg/BCmeHUGe6a">the members of the r/neocities discord server</a>
+
+  </div></div>
+  </footer>
+        </div>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,532 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+            /* user styles */
+
+            /* styles are what change the color and sizes of stuff on your site. */
+
+            /* these are variables that are being used in the code
+    these tended to confuse some people, so I only kept 
+    the images as variables */
+
+            :root {
+                --header-image: url('/img gen/header.png');
+                --body-bg-image: url('/img gen/bg img.png');
+                --bdy-bg: #08031A;
+                --sb-bg: #101C21;
+                --alt-clr: #101821;
+                --mn-fnt: #d6d1eb;
+                --sp-fnt: #53A9FF;
+                --brdr: #007FFF;
+                
+
+                /* colors */
+                --content: #43256E;
+            }
+
+            /* if you have the URL of a font, you can set it below */
+            /* feel free to delete this if it's not your vibe */
+
+            /* this seems like a lot for just one font and I would have to agree 
+    but I wanted to include an example of how to include a custom font.
+    If you download a font file you can upload it onto your Neocities
+    and then link it! Many fonts have separate files for each style
+    (bold, italic, etc. T_T) which is why there are so many!
+    
+    */
+
+
+            @font-face {
+                font-family: Quicksand;
+                src: url('https://mechagic.neocities.org/quicksand/Quicksand-Medium.ttf');
+            }
+
+            @font-face {
+                font-family: Quicksand;
+                src: url('https://mechagic.neocities.org/quicksand/Quicksand-Bold.otf');
+                font-weight: bold;
+            }
+
+            @font-face {
+                font-family: Quicksand;
+                src: url('https://mechagic.neocities.org/quicksand/Quicksand-Italic.otf');
+                font-style: italic;
+            }
+
+            @font-face {
+                font-family: Quicksand;
+                src: url('https://mechagic.neocities.org/quicksand/Quicksand-BoldItalic.otf');
+                font-style: italic;
+                font-weight: bold;
+            }
+            
+            hr.rounded {
+              border-top: 4px solid var(--brdr);
+              border-radius: 5px;
+            }
+            
+            hr.thin-round {
+              border-top: 3px solid var(--brdr);
+              border-radius: 5px;
+              width: 90%;
+            }
+
+            body {
+                font-family: 'Quicksand', sans-serif;
+                margin: 0;
+                background-color: var(--bdy-bg);
+                font-size: 18px;
+                /* you can delete the line below if you'd prefer to not use an image */
+                background-size: 80px;
+                background-attachment: fixed;
+                color:  var(--mn-fnt);
+                background-image: var(--body-bg-image);
+            }
+
+
+            * {
+                box-sizing: border-box;
+            }
+
+            /* below this line is CSS for the layout */
+
+            /* this is a CSS comment
+    to uncomment a line of CSS, remove the * and the /
+    before and after the text */
+
+
+            /* the "container" is what wraps your entire website */
+            /* if you want something (like the header) to be Wider than
+    the other elements, you will need to move that div outside
+    of the container */
+            #container {
+                max-width: 1000px;
+                /* this is the width of your layout! */
+                /* if you change the above value, scroll to the bottom
+      and change the media query according to the comment! */
+                margin: 0 auto;
+                /* this centers the entire page */
+            }
+
+            /* the area below is for all links on your page
+    EXCEPT for the navigation */
+            a {
+                color: var(--sp-fnt);
+                font-weight: bold;
+                font-style: italic;                
+                /* if you want to remove the underline
+      you can add a line below here that says:
+      text-decoration:none; */
+            }
+
+            
+
+            #header {
+               width: 100%;
+               background-color: #ADD6FF;
+               height: 28vh;
+               background-image: var(--header-image);
+               background-size: auto 28vh;
+               background-repeat: no-repeat;
+               border: 3px solid var(--brdr);
+               background-position: center;
+            }
+
+            /* navigation section!! */
+            #navbar {
+                
+                background-color: var(--sb-bg);
+                /* navbar color */
+                width: 100%;
+                border: 3px solid var(--brdr);
+
+                
+            }
+
+            #navbar ul {
+                display: flex;
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+                justify-content: space-evenly;
+                
+            }
+
+            #navbar li {
+                padding-top: 10px;
+            }
+
+            /* navigation links*/
+            #navbar li a {
+                color:  var(--mn-fnt);
+                /* navbar text color */
+                font-weight: 800;
+                text-decoration: none;
+                /* this removes the underline */
+            }
+
+            /* navigation link when a link is hovered over */
+            #navbar li a:hover {
+                color: var(--sp-fnt);
+                text-decoration: underline;
+            }
+            
+
+            #flex {
+                display: flex;
+            }
+            
+            #feed-reader {
+                background-color: var(--bdy-bg);
+                border: 3px solid var(--brdr);
+                height: 230px;
+                width:90%;
+                overflow: auto;
+            }
+
+            /* this colors BOTH sidebars
+    if you want to style them separately,
+    create styles for #leftSidebar and #rightSidebar */
+            aside {
+                background-color: var(--sb-bg);
+                width: 230px;
+                padding: 10px;
+                font-size: 1rem;
+                border: 3px solid var(--brdr);
+
+                
+                
+                /* this makes the sidebar text slightly smaller */
+            }
+
+
+            /* this is the color of the main content area,o
+    between the sidebars! */
+            main {
+                background-color: #0C222B;
+                flex: 1;
+                padding: 30px;
+                order: 2;
+                border: 3px solid var(--brdr);
+            }
+            
+            invis {
+                background-color: rgb(76, 175, 80, 0.0);
+
+            }
+                         img {
+                           max-width: 100%;
+                           image-rendering: pixelated;
+                         }
+
+            /* what's this "order" stuff about??
+    allow me to explain!
+    if you're using both sidebars, the "order" value
+    tells the CSS the order in which to display them.
+    left sidebar is 1, content is 2, and right sidebar is 3! */
+
+            #leftSidebar {
+                order: 1;
+            }
+
+            #rightSidebar {
+                order: 3;
+            }
+
+            footer {
+                background-color: var(--sb-bg);
+                /* background color for footer */
+                width: 100%;
+                padding: 10px;
+                text-align: center;
+                border: 3px solid var(--brdr);
+
+                /* this centers the footer text */
+            }
+
+            h1 {
+                font-size: 40px;
+                color: var(--sp-fnt);
+            }
+            h2 {
+                font-size: 35px;
+                color: var(--sp-fnt);
+            }
+            h3 {
+                font-size: 25px;
+                color: var(--sp-fnt);
+            }
+
+            strong {
+                /* this styles bold text */
+                color:  var(--sp-fnt);
+            }
+            
+             .copyButton {
+               width:176px; /* this controls the width of the box */
+               height: 62px;
+               font-size:15px; /* this controls the font size */
+               /* you can also set a background color and text color here */
+               background-color: #01101f;
+               color:  var(--mn-fnt);
+    
+             }
+
+            /* this is just a cool box, it's the darker colored one */
+            .box {
+                background-color: var(--bdy-bg);
+                border: 3px solid var(--brdr);
+                padding: 10px;
+            }
+            
+            .mbox{
+               background-color: var(--bdy-bg);
+                border: 3px solid var(--brdr);
+                padding: 10px;
+                text-align:center;
+                justify-content: center;
+              }
+            
+            .wbox {
+                background-color: var(--bdy-bg);
+                border: 3px solid var(--brdr);
+                padding: 10px;
+                height: 62px;
+                width: 90%;
+                overflow-x: auto;
+            }
+            
+                .cbox {
+                background-color: var(--alt-clr);
+                border: 5px solid var(--brdr);
+                border-top: none;
+                border-bottom: none;
+                margin: auto;
+                top: 50%;
+                max-width:900px;
+                padding-left: 50px;
+                padding-right: 50px;
+
+            }
+            
+            /*transparent  and sticky box*/
+            .tbox {
+                background: rgb(76, 175, 80, 0.0);
+                position: sticky;
+                top: 0px;
+            }
+            
+            /*transparent box*/
+            .ibox {
+                background: rgb(76, 175, 80, 0.0);
+                width: 70%;
+                top: 0px;
+            }
+
+                        .tab {
+               overflow: scroll;
+              border: 3px solid var(--brdr);
+              background-color: var(--alt-clr);
+              color:  var(--mn-fnt);
+              width: 100%;
+
+            }
+            
+
+/* Style the buttons inside the tab */
+            .tab button {
+              background-color: inherit;
+              float: left;
+              border: none;
+              outline: none;
+             cursor: pointer;
+              padding: 14px 16px;
+              transition: 0.3s;
+              font-size: 17px;
+              color:  var(--mn-fnt);
+            }
+
+
+/* Create an active/current tablink class */
+            .tab button.active {
+              background-color: var(--brdr);
+              color:  var(--mn-fnt);
+              
+            }
+
+/* Style the tab content */
+            .tabcontent {
+              display: none;
+              padding: 6px 12px;
+              border: 3px solid var(--brdr);
+              background-color: var(--alt-clr);
+              color:  var(--mn-fnt);
+              border-top: none;
+              overflow: scroll;
+              width: 100%;
+
+            }
+                                .img-text {
+                           display: flex;
+                           justify-content: center;
+                           background: var(--alt-clr);
+                           border: 3px solid var(--brdr);
+                           height: 200px;  
+                           overflow: auto;
+                           padding: 10px;
+                           width: 100%;
+                         }
+                         
+                         .photo-mg {
+                           flex-basis: 140%
+                           
+                         }
+                         .text-mg {;
+                           font-size: 18px;
+                           color:  var(--mn-fnt);
+                           padding-left: 20px;
+                           
+                         }
+
+                                .img-text1 {
+                           display: flex;
+                           justify-content: center;
+                           background: var(--alt-clr);
+                           border: 3px solid var(--brdr);
+                           height: 300px;  
+                           overflow: auto;
+                           padding: 10px;
+                           width: 100%;
+                         }
+                         
+                         .photo-mg1 {
+                           flex-basis: 190%;
+                           
+                         }
+                         
+                                .double-text {
+                           display: flex;
+                           justify-content: center;
+                           background-color: var(--bdy-bg);
+                           border: 3px solid var(--brdr);
+                           height: 200px;  
+                           overflow-y: auto;
+                           overflow-x: auto;
+                           padding: 10px;
+                           width: 100%;
+                         }
+                         
+                         .vrt-brdr{
+                           height: 100%;
+                           border-right: 3px solid var(--brdr);
+                           position: sticky;
+                           overflow-y: auto;
+                           overflow-x: auto;
+                           top: 0px;
+                           
+                         }
+                         
+                                .txt1 {
+                           font-size: 18px;
+                           color:  var(--mn-fnt);
+                           padding-left: 20px;
+                           padding-right: 15px;
+                           flex-basis: 100%;
+                         }
+                         
+                         .txt2 {
+                           flex-basis: 100%;
+                           font-size: 18px;
+                           color:  var(--mn-fnt);
+                           padding-right: 20px;
+                           padding-left: 15px;
+                         }
+          
+            
+            table.table1, table.table1 tr, table.table1 td {
+              border: 3px solid var(--alt-clr);
+              background-color: #161f2b;
+               overflow: scroll;
+
+            }
+          
+            
+            
+            #statuscafe {
+                padding: .5em;
+                background-color: var(--bdy-bg);
+                border: 3px solid var(--brdr);
+                width: 50%;
+                height: auto;
+            }
+            #statuscafe-username {
+                margin-bottom: .5em;
+            }
+            #statuscafe-content {
+                margin: 0 1em 0.5em 1em;
+            }
+            
+            
+            /* no css just to show an unstyled feed
+   and to provide a template for creating new styles */
+   
+
+
+
+                        /*game canvas*/
+              canvas {
+    border: 1px solid white;
+              }
+
+
+            /* CSS for extras */
+
+            #topBar {
+                width: 100%;
+                height: 30px;
+                padding: 10px;
+                font-size: smaller;
+                background-color: #13092D;
+            }
+
+
+            /* BELOW THIS POINT IS MEDIA QUERY */
+
+            /* so you wanna change the width of your page? 
+    by default, the container width is 900px.
+    in order to keep things responsive, take your new height,
+    and then subtrack it by 100. use this new number as the 
+    "max-width" value below
+    */
+
+            @media only screen and (max-width: 900px) {
+                #flex {
+                    flex-wrap: wrap;
+                }
+
+                aside {
+                    width: 100%;
+                }
+
+                /* the order of the items is adjusted here for responsiveness!
+      since the sidebars would be too small on a mobile device.
+      feel free to play around with the order!
+      */
+                main {
+                    order: 2;
+                    width: 100%;
+                }
+
+                #leftSidebar {
+                    order: 3;
+                }
+
+                #rightSidebar {
+                    order: 1;
+                }
+
+                #navbar ul {
+                    flex-wrap: wrap;
+                }
+            }

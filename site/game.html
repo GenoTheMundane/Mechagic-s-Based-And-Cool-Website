@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mechagic's Based & Cool Website</title>
+  <link rel="icon" type="image/x-icon" href="/img gen/favicon.png">
+  <meta content="Mechagic's Based And Cool Website" property="og:title">
+  <meta content="/img gen/favicon.png" property="og:image">
+  <meta property="og:description" content="I swear to you that I am actually a cockroach IRL, trust me bro">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="//pull.cappuccicons.com/cpf.js"></script>
+  <link rel="stylesheet" href="/style.css">
+          <!-- THIS IS THE CSS !-->
+        <style></style>
+        
+</head>
+<body>
+        <div id="container">
+            <div id="headerArea">
+                <div id="header"></div>
+                <nav id="navbar">
+                    <ul>
+                        <li><a href="/home">HOME  <i class="cp cp-home"></i> </a></li>
+                         <li><a href="/creations">CREATIONS <i class="cp cp-palette"></i> </a></li>
+                        <li><a href="/game">GAMES <i class="cp cp-gaming-controller"></i> </a></li>
+                        <li><a href="/identities">IDENTITIES <i class="cp cp-flower"></i> </a></li>
+                        <li><a href="/platforms">PLATFORMS <i class="cp cp-worldwide"></i> </a></li>
+                        <li><a href="/misc">MISC <i class="cp cp-folder"></i> </a></li>
+                    </ul>
+                  </nav>
+            </div>
+                    <div class="box">
+                       <center> <h1>b r e a k o u t</h1><p>taken from <a href="https://gist.github.com/straker">straker on github</a></p></CENTER>
+                    </div>
+                    
+            <div id="flex">
+                <aside id="leftSidebar">
+                <div class="tbox">
+                                   <br>
+                   <center><h3>Random Stuff</h3></center>
+                   
+                        <center><p>Creation: 10-13-2023 <br><br>  Last Updated: <span id="lastupdate"></span ><br><br> <span id="hitcount"></span> people have visited</p> </center>
+                        <hr class="rounded">
+                        <center><img src="/img gen/sidebar img.png" width="190" height="auto"> </center>
+                        <hr class="rounded">
+                        <center><p>Have a button that I made:</p> 
+                        <img src="/img gen/button 2.0.png" width="90" height="auto"> <br><br ><textarea class="copyButton"><a href="https://mechagic.neocities.org/" target="_blank"><img src="https://i.ibb.co/pjNYks8/button-2-0.png"></a></textarea></center>
+                </div>
+
+<script>
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var site_data = JSON.parse(this.responseText);
+        var num_arr = site_data.info.views.toString().split("");
+        var num_str = "";
+        for (i = 0; i < num_arr.length; i++) {
+            num_str += num_arr[i];
+            if ( (num_arr.length-1 - i) % 3 == 0 && (num_arr.length-1 - i) != 0 ) {num_str += ",";}
+            var date_str = site_data.info.last_updated;
+            var date_obj = new Date(site_data.info.last_updated);
+            document.getElementById("lastupdate").innerHTML = (date_obj.getMonth()+1) + "-" + date_obj.getDate() + "-" + date_obj.getFullYear();
+        }
+        document.getElementById("hitcount").innerHTML = num_str;
+    }
+};
+xhttp.open("GET", "https://weirdscifi.ratiosemper.com/neocities.php?sitename=mechagic", true);
+xhttp.send();
+</script>
+
+
+                </aside>
+                <main>
+
+                    <p>press <b>space</b> to begin</p>
+
+                    <canvas width="400" height="500" id="game"></canvas>
+<center><script>
+const canvas = document.getElementById('game');
+const context = canvas.getContext('2d');
+
+// each row is 14 bricks long. the level consists of 6 blank rows then 8 rows
+// of 4 colors: red, orange, green, and yellow
+const level1 = [
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  ['R','R','R','R','R','R','R','R','R','R','R','R','R','R'],
+  ['R','R','R','R','R','R','R','R','R','R','R','R','R','R'],
+  ['O','O','O','O','O','O','O','O','O','O','O','O','O','O'],
+  ['O','O','O','O','O','O','O','O','O','O','O','O','O','O'],
+  ['G','G','G','G','G','G','G','G','G','G','G','G','G','G'],
+  ['G','G','G','G','G','G','G','G','G','G','G','G','G','G'],
+  ['Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y'],
+  ['Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y']
+];
+
+// create a mapping between color short code (R, O, G, Y) and color name
+const colorMap = {
+  'R': 'red',
+  'O': 'orange',
+  'G': 'green',
+  'Y': 'yellow'
+};
+
+// use a 2px gap between each brick
+const brickGap = 2;
+const brickWidth = 25;
+const brickHeight = 12;
+
+// the wall width takes up the remaining space of the canvas width. with 14 bricks
+// and 13 2px gaps between them, thats: 400 - (14 * 25 + 2 * 13) = 24px. so each
+// wall will be 12px
+const wallSize = 12;
+const bricks = [];
+
+// create the level by looping over each row and column in the level1 array
+// and creating an object with the bricks position (x, y) and color
+for (let row = 0; row < level1.length; row++) {
+  for (let col = 0; col < level1[row].length; col++) {
+    const colorCode = level1[row][col];
+
+    bricks.push({
+      x: wallSize + (brickWidth + brickGap) * col,
+      y: wallSize + (brickHeight + brickGap) * row,
+      color: colorMap[colorCode],
+      width: brickWidth,
+      height: brickHeight
+    });
+  }
+}
+
+const paddle = {
+  // place the paddle horizontally in the middle of the screen
+  x: canvas.width / 2 - brickWidth / 2,
+  y: 440,
+  width: brickWidth,
+  height: brickHeight,
+
+  // paddle x velocity
+  dx: 0
+};
+
+const ball = {
+  x: 130,
+  y: 260,
+  width: 5,
+  height: 5,
+
+  // how fast the ball should go in either the x or y direction
+  speed: 2,
+
+  // ball velocity
+  dx: 0,
+  dy: 0
+};
+
+// check for collision between two objects using axis-aligned bounding box (AABB)
+// @see https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+function collides(obj1, obj2) {
+  return obj1.x < obj2.x + obj2.width &&
+         obj1.x + obj1.width > obj2.x &&
+         obj1.y < obj2.y + obj2.height &&
+         obj1.y + obj1.height > obj2.y;
+}
+
+// game loop
+function loop() {
+  requestAnimationFrame(loop);
+  context.clearRect(0,0,canvas.width,canvas.height);
+
+  // move paddle by it's velocity
+  paddle.x += paddle.dx;
+
+  // prevent paddle from going through walls
+  if (paddle.x < wallSize) {
+    paddle.x = wallSize
+  }
+  else if (paddle.x + brickWidth > canvas.width - wallSize) {
+    paddle.x = canvas.width - wallSize - brickWidth;
+  }
+
+  // move ball by it's velocity
+  ball.x += ball.dx;
+  ball.y += ball.dy;
+
+  // prevent ball from going through walls by changing its velocity
+  // left & right walls
+  if (ball.x < wallSize) {
+    ball.x = wallSize;
+    ball.dx *= -1;
+  }
+  else if (ball.x + ball.width > canvas.width - wallSize) {
+    ball.x = canvas.width - wallSize - ball.width;
+    ball.dx *= -1;
+  }
+  // top wall
+  if (ball.y < wallSize) {
+    ball.y = wallSize;
+    ball.dy *= -1;
+  }
+
+  // reset ball if it goes below the screen
+  if (ball.y > canvas.height) {
+    ball.x = 130;
+    ball.y = 260;
+    ball.dx = 0;
+    ball.dy = 0;
+  }
+
+  // check to see if ball collides with paddle. if they do change y velocity
+  if (collides(ball, paddle)) {
+    ball.dy *= -1;
+
+    // move ball above the paddle otherwise the collision will happen again
+    // in the next frame
+    ball.y = paddle.y - ball.height;
+  }
+
+  // check to see if ball collides with a brick. if it does, remove the brick
+  // and change the ball velocity based on the side the brick was hit on
+  for (let i = 0; i < bricks.length; i++) {
+    const brick = bricks[i];
+
+    if (collides(ball, brick)) {
+      // remove brick from the bricks array
+      bricks.splice(i, 1);
+
+      // ball is above or below the brick, change y velocity
+      // account for the balls speed since it will be inside the brick when it
+      // collides
+      if (ball.y + ball.height - ball.speed <= brick.y ||
+          ball.y >= brick.y + brick.height - ball.speed) {
+        ball.dy *= -1;
+      }
+      // ball is on either side of the brick, change x velocity
+      else {
+        ball.dx *= -1;
+      }
+
+      break;
+    }
+  }
+
+  // draw walls
+  context.fillStyle = 'lightgrey';
+  context.fillRect(0, 0, canvas.width, wallSize);
+  context.fillRect(0, 0, wallSize, canvas.height);
+  context.fillRect(canvas.width - wallSize, 0, wallSize, canvas.height);
+
+  // draw ball if it's moving
+  if (ball.dx || ball.dy) {
+    context.fillRect(ball.x, ball.y, ball.width, ball.height);
+  }
+
+  // draw bricks
+  bricks.forEach(function(brick) {
+    context.fillStyle = brick.color;
+    context.fillRect(brick.x, brick.y, brick.width, brick.height);
+  });
+
+  // draw paddle
+  context.fillStyle = 'cyan';
+  context.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
+}
+
+// listen to keyboard events to move the paddle
+document.addEventListener('keydown', function(e) {
+  // left arrow key
+  if (e.which === 37) {
+    paddle.dx = -3;
+  }
+  // right arrow key
+  else if (e.which === 39) {
+    paddle.dx = 3;
+  }
+
+  // space key
+  // if they ball is not moving, we can launch the ball using the space key. ball
+  // will move towards the bottom right to start
+  if (ball.dx === 0 && ball.dy === 0 && e.which === 32) {
+    ball.dx = ball.speed;
+    ball.dy = ball.speed;
+  }
+});
+
+// listen to keyboard events to stop the paddle if key is released
+document.addEventListener('keyup', function(e) {
+  if (e.which === 37 || e.which === 39) {
+    paddle.dx = 0;
+  }
+});
+
+// start the game
+requestAnimationFrame(loop);
+</script></center>
+   
+
+                    
+                </main>
+                
+            </div>
+                                <footer id="footer"><div class="container">
+                <a href="#credits" class="btn btn-primary btn-sm" data-toggle="collapse"><b>credits</b></a>
+  <div id="credits" class="collapse">
+    <b>original layout</b> and <b>bg image</b> by <a href="https://sadgrl.online/">sadgrl</a>, <b>general code learning</b> from <a href="https://www.w3schools.com/">w3schools</a>, <b>icons</b> from <a href="https://cappuccicons.com/">cappuccicons</a> <br> <b>help regarding errors</b> from <a href="https://discord.gg/BCmeHUGe6a">the members of the r/neocities discord server</a>
+
+  </div></div>
+  </footer> 
+        </div>
+
+    
+
+</body>
+</html>

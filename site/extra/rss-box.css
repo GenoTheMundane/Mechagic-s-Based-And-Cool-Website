@@ -1,0 +1,32 @@
+         .rss-box {
+                background-color: #08031A;
+                border: 3px solid #007FFF;
+                padding: 10px;
+                height: 250px;
+                overflow-x: auto;
+ }
+
+
+ .rss-title, rss-title a {
+                font-size: 0px;
+                color: #53A9FF;
+
+ }
+ 
+ .rss-items {
+        margin: 15px;
+        color: #d6d1eb;
+        font-weight: bold;
+}
+
+
+.rss-item a:link, .rss-item a:visited, .rss-item a:active {
+        color: #d6d1eb;
+        font-weight: bold;
+        margin: 15px;
+}
+	
+.rss-date {
+         color: #53A9FF;
+        font-weight: normal;
+}
